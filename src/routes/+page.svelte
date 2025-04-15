@@ -16,7 +16,7 @@
 		{ id: 3, name: 'gownodadadadadadadada', subtasks: [] }
 	]);
 
-	let taskName = $state('New task');
+	let taskName = $state('');
 	let subtaskInputs = $state<{ [key: number]: string }>({});
 
 	function addTask() {
@@ -60,13 +60,15 @@
 					</div>
 				{/if}
 				<div class="new-task">
-					<input type="text" bind:value={subtaskInputs[task.id]} />
+					<div class="fake-circle-checkbox"></div>
+					<input type="text" class="task-input" bind:value={subtaskInputs[task.id]} />
 					<button onclick={() => addSubtask(task.id)}>+</button>
 				</div>
 			</div>
 		{/each}
 		<div class="new-task">
-			<input type="text" bind:value={taskName} />
+			<div class="fake-circle-checkbox"></div>
+			<input type="text" class="task-input" bind:value={taskName} />
 			<button onclick={() => addTask()}>+</button>
 		</div>
 	</div>
@@ -99,6 +101,18 @@
 		}
 	}
 
+	.fake-circle-checkbox {
+		width: 0.8em;
+		height: 0.8em;
+		background-color: white;
+		border-radius: 50%;
+		vertical-align: middle;
+		border: 1px dotted #ddd;
+		appearance: none;
+		-webkit-appearance: none;
+		outline: none;
+	}
+
 	.app {
 		display: flex;
 		justify-content: center;
@@ -115,6 +129,7 @@
 					width: 300px;
 					background-color: #e73879;
 					border-radius: 8px;
+					align-items: center;
 					.task-text {
 						margin-left: 8px;
 						font-size: 18px;
@@ -129,11 +144,37 @@
 						background-color: #e73879;
 						border-radius: 8px;
 						margin-top: 2px;
+						align-items: center;
 						.subtask-text {
 							margin-left: 8px;
 							font-size: 18px;
 						}
 					}
+				}
+				.new-task {
+					display: flex;
+					padding: 4px;
+					width: 280px;
+					background-color: #e73879;
+					border-radius: 8px;
+					margin-top: 2px;
+					padding-left: 24px;
+					align-items: center;
+					.task-input {
+						margin-left: 8px;
+					}
+				}
+			}
+			.new-task {
+				display: flex;
+				padding: 4px;
+				width: 300px;
+				background-color: #e73879;
+				border-radius: 8px;
+				margin-top: 2px;
+				align-items: center;
+				.task-input {
+					margin-left: 8px;
 				}
 			}
 		}
