@@ -46,14 +46,14 @@
 		{#each tasks as task}
 			<div class="task">
 				<div class="task-details">
-					<input type="checkbox" />
+					<input type="checkbox" class="circle-checkbox" />
 					<div class="task-text">{task.name}</div>
 				</div>
 				{#if task.subtasks != undefined}
 					<div class="subtasks">
 						{#each task.subtasks as subtask}
 							<div class="subtask">
-								<input type="checkbox" />
+								<input type="checkbox" class="circle-checkbox" />
 								<div class="subtask-text">{subtask.name}</div>
 							</div>
 						{/each}
@@ -61,35 +61,63 @@
 				{/if}
 				<div class="new-task">
 					<input type="text" bind:value={subtaskInputs[task.id]} />
-					<button onclick={() => addSubtask(task.id)}>-></button>
+					<button onclick={() => addSubtask(task.id)}>+</button>
 				</div>
 			</div>
 		{/each}
 		<div class="new-task">
 			<input type="text" bind:value={taskName} />
-			<button onclick={() => addTask()}>-></button>
+			<button onclick={() => addTask()}>+</button>
 		</div>
 	</div>
 </div>
 
 <style lang="scss">
+	@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+	:global(body) {
+		margin: 0px;
+		background-color: #7e1891;
+		font-family: 'VT323', monospace;
+		font-weight: 400;
+		font-style: normal;
+	}
+
+	.circle-checkbox {
+		width: 1.3em;
+		height: 1.3em;
+		background-color: white;
+		border-radius: 50%;
+		vertical-align: middle;
+		border: 1px dotted #ddd;
+		appearance: none;
+		-webkit-appearance: none;
+		outline: none;
+		cursor: pointer;
+		&:checked {
+			background-color: #fcc737;
+		}
+	}
+
 	.app {
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		flex-direction: column;
 		margin-top: 24px;
+		color: white;
 		.tasks {
 			.task {
-				border: 1px gray solid;
-				border-radius: 6px;
 				margin-bottom: 12px;
 				.task-details {
 					display: flex;
 					padding: 4px;
 					width: 300px;
+					background-color: #e73879;
+					border-radius: 8px;
 					.task-text {
 						margin-left: 8px;
+						font-size: 18px;
 					}
 				}
 				.subtasks {
@@ -98,8 +126,12 @@
 						padding: 4px;
 						width: 280px;
 						padding-left: 24px;
+						background-color: #e73879;
+						border-radius: 8px;
+						margin-top: 2px;
 						.subtask-text {
 							margin-left: 8px;
+							font-size: 18px;
 						}
 					}
 				}
