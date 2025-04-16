@@ -61,14 +61,19 @@
 				{/if}
 				<div class="new-task">
 					<div class="fake-circle-checkbox"></div>
-					<input type="text" class="task-input" bind:value={subtaskInputs[task.id]} />
+					<input
+						type="text"
+						class="task-input"
+						placeholder="New task..."
+						bind:value={subtaskInputs[task.id]}
+					/>
 					<button onclick={() => addSubtask(task.id)}>+</button>
 				</div>
 			</div>
 		{/each}
 		<div class="new-task">
 			<div class="fake-circle-checkbox"></div>
-			<input type="text" class="task-input" bind:value={taskName} />
+			<input type="text" class="task-input" placeholder="New task..." bind:value={taskName} />
 			<button onclick={() => addTask()}>+</button>
 		</div>
 	</div>
@@ -163,8 +168,20 @@
 					margin-top: 2px;
 					padding-left: 24px;
 					align-items: center;
-					.task-input {
+
+					.task-input[type='text'] {
 						margin-left: 8px;
+						outline: none;
+						border: none;
+						font-size: 20px;
+						font-family: 'VT323', monospace;
+						font-weight: 400;
+						font-style: normal;
+						background-color: #e73879;
+						padding: 4px;
+						&::placeholder {
+							color: #ffc8e6;
+						}
 					}
 				}
 			}
@@ -177,8 +194,19 @@
 				border-radius: 8px;
 				margin-top: 2px;
 				align-items: center;
-				.task-input {
+				.task-input[type='text'] {
 					margin-left: 8px;
+					outline: none;
+					border: none;
+					font-size: 20px;
+					font-family: 'VT323', monospace;
+					font-weight: 400;
+					font-style: normal;
+					background-color: #e73879;
+					padding: 4px;
+					&::placeholder {
+						color: #ffc8e6;
+					}
 				}
 			}
 		}
