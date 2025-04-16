@@ -126,20 +126,22 @@
 				.task-details {
 					display: flex;
 					padding: 4px;
-					width: 300px;
+					width: 360px;
+					height: 28px;
 					background-color: #e73879;
 					border-radius: 8px;
 					align-items: center;
 					.task-text {
 						margin-left: 8px;
-						font-size: 18px;
+						font-size: 20px;
 					}
 				}
 				.subtasks {
 					.subtask {
 						display: flex;
 						padding: 4px;
-						width: 280px;
+						width: 340px;
+						height: 28px;
 						padding-left: 24px;
 						background-color: #e73879;
 						border-radius: 8px;
@@ -147,14 +149,15 @@
 						align-items: center;
 						.subtask-text {
 							margin-left: 8px;
-							font-size: 18px;
+							font-size: 20px;
 						}
 					}
 				}
 				.new-task {
 					display: flex;
 					padding: 4px;
-					width: 280px;
+					width: 340px;
+					height: 28px;
 					background-color: #e73879;
 					border-radius: 8px;
 					margin-top: 2px;
@@ -168,7 +171,8 @@
 			.new-task {
 				display: flex;
 				padding: 4px;
-				width: 300px;
+				width: 360px;
+				height: 28px;
 				background-color: #e73879;
 				border-radius: 8px;
 				margin-top: 2px;
